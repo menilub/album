@@ -1,143 +1,158 @@
-
 <%@ page import="com.opentunities.model.Photo" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'photo.label', default: 'Photo')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-photo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-photo" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list photo">
-			
-				<g:if test="${photoInstance?.bytes}">
-				<li class="fieldcontain">
-					<span id="bytes-label" class="property-label"><g:message code="photo.bytes.label" default="Bytes" /></span>
-					
-						<span class="property-value" aria-labelledby="bytes-label"><g:fieldValue bean="${photoInstance}" field="bytes"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.created_at}">
-				<li class="fieldcontain">
-					<span id="created_at-label" class="property-label"><g:message code="photo.created_at.label" default="Createdat" /></span>
-					
-						<span class="property-value" aria-labelledby="created_at-label"><g:formatDate date="${photoInstance?.created_at}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.etag}">
-				<li class="fieldcontain">
-					<span id="etag-label" class="property-label"><g:message code="photo.etag.label" default="Etag" /></span>
-					
-						<span class="property-value" aria-labelledby="etag-label"><g:fieldValue bean="${photoInstance}" field="etag"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.format}">
-				<li class="fieldcontain">
-					<span id="format-label" class="property-label"><g:message code="photo.format.label" default="Format" /></span>
-					
-						<span class="property-value" aria-labelledby="format-label"><g:fieldValue bean="${photoInstance}" field="format"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.height}">
-				<li class="fieldcontain">
-					<span id="height-label" class="property-label"><g:message code="photo.height.label" default="Height" /></span>
-					
-						<span class="property-value" aria-labelledby="height-label"><g:fieldValue bean="${photoInstance}" field="height"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.public_id}">
-				<li class="fieldcontain">
-					<span id="public_id-label" class="property-label"><g:message code="photo.public_id.label" default="Publicid" /></span>
-					
-						<span class="property-value" aria-labelledby="public_id-label"><g:fieldValue bean="${photoInstance}" field="public_id"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.resource_type}">
-				<li class="fieldcontain">
-					<span id="resource_type-label" class="property-label"><g:message code="photo.resource_type.label" default="Resourcetype" /></span>
-					
-						<span class="property-value" aria-labelledby="resource_type-label"><g:fieldValue bean="${photoInstance}" field="resource_type"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.secure_url}">
-				<li class="fieldcontain">
-					<span id="secure_url-label" class="property-label"><g:message code="photo.secure_url.label" default="Secureurl" /></span>
-					
-						<span class="property-value" aria-labelledby="secure_url-label"><g:fieldValue bean="${photoInstance}" field="secure_url"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.signature}">
-				<li class="fieldcontain">
-					<span id="signature-label" class="property-label"><g:message code="photo.signature.label" default="Signature" /></span>
-					
-						<span class="property-value" aria-labelledby="signature-label"><g:fieldValue bean="${photoInstance}" field="signature"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.type}">
-				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="photo.type.label" default="Type" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${photoInstance}" field="type"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.url}">
-				<li class="fieldcontain">
-					<span id="url-label" class="property-label"><g:message code="photo.url.label" default="Url" /></span>
-					
-						<span class="property-value" aria-labelledby="url-label"><g:fieldValue bean="${photoInstance}" field="url"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${photoInstance?.width}">
-				<li class="fieldcontain">
-					<span id="width-label" class="property-label"><g:message code="photo.width.label" default="Width" /></span>
-					
-						<span class="property-value" aria-labelledby="width-label"><g:fieldValue bean="${photoInstance}" field="width"/></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:photoInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${photoInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<head>
+    <meta name="layout" content="main">
+</head>
+
+<body>
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <p>Height & Width 300px with pad and black background</p>
+            <p>"Resize the image to fill the given width and height while retaining the original aspect ratio. If the proportions of the original image do not match the given width and height, padding is added to the image to reach the required size"</p>
+        <cl:img id="${photoInstance.public_id}" height="300" width="300" background="black" crop="pad" />
+        </div>
+        <div class="well">
+            <p>Scale to Width 300px. Height auto</p>
+            <p>"Change the size of the image exactly to the given width and height without necessarily retaining the original aspect ratio: all original image parts are visible but might be stretched or shrunk."</p>
+            <cl:img id="${photoInstance.public_id}" width="300" crop="scale" />
+        </div>
+        <div class="well">
+            <p>Width 150, Height 150px in crop 'fill' mode</p>
+            <p>"Create an image with the exact given width and height while retaining the original aspect ratio, using only part of the image that fills the given dimensions if necessary (only part of the original image might be visible if the requested aspect ratio is different from the original aspect ratio)."</p>            <cl:img id="${photoInstance.public_id}" width="200" height="200" crop="fill" />
+        </div>
+        <div class="well">
+            <p>Generate a thumbnail (150px X 150px) using face detection in combination with the 'face' and 'faces' gravity.</p>
+            <cl:img id="${photoInstance.public_id}" width="150" height="150" gravity="face" crop="thumb"/> <cl:img id="${photoInstance.public_id}" width="150" height="150" gravity="faces" crop="thumb"/>
+
+        </div>
+    </div>
+
+    <div id="show-photo" class="col-md-6" style="word-wrap: break-word;">
+
+        <ul class="list-group text-left">
+
+            <g:if test="${photoInstance?.resource_type}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.resource_type.label" default="resource_type"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="resource_type"/></p>
+                </li>
+            </g:if>
+
+
+            <g:if test="${photoInstance?.format}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.format.label" default="Format"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="format"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.height}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.height.label" default="Height"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="height"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.width}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.width.label" default="Width"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="width"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.bytes}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.bytes.label" default="Bytes"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="bytes"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.created_at}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.created_at.label" default="Createdat"/></label>
+                    <p><g:formatDate date="${photoInstance?.created_at}"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.etag}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.etag.label" default="Etag"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="etag"/></p>
+                </li>
+            </g:if>
+
+
+            <g:if test="${photoInstance?.public_id}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.public_id.label" default="public_id"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="public_id"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.url}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.url.label" default="url"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="url"/></p>
+                </li>
+            </g:if>
+
+            <g:if test="${photoInstance?.secure_url}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.secure_url.label" default="secure_url"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="secure_url"/></p>
+                </li>
+            </g:if>
+
+
+              <g:if test="${photoInstance?.signature}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.signature.label" default="signature"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="signature"/></p>
+                </li>
+            </g:if>
+
+             <g:if test="${photoInstance?.type}">
+
+                <li class="list-group-item">
+                    <label><g:message code="photo.type.label" default="type"/></label>
+
+                    <p><g:fieldValue bean="${photoInstance}" field="type"/></p>
+                </li>
+            </g:if>
+
+        </ul>
+
+        <g:form url="[resource: photoInstance, action: 'delete']" method="DELETE">
+            <fieldset class="buttons">
+                <g:link class="edit" action="edit" resource="${photoInstance}"><g:message code="default.button.edit.label" default="Edit"/></g:link>
+                <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+                                onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
+            </fieldset>
+        </g:form>
+    </div>
+</div>
+</body>
 </html>
